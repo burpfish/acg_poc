@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hello World | angular.js</title>
+		<script src="angular.js"></script>
+	</head>
+	<body ng-app="helloWorldApp" ng-controller="helloWorldCtrl">
+	  <h1>{{::helloWorld}}</h1>
+
+	  <ul>
+		  <li><a href="file_half_mb.txt">0.5mb file</a></li>
+		  <li><a href="file_1mb.txt">1mb file</a></li>
+		  <li><a href="file_5mb.txt">5mb file</a></li>
+		  <li><a href="file_6mb.txt">6mb file</a></li>
+		  <li><a href="file_10mb.txt">10mb file</a></li>
+		  <li><a href="file_11mb.txt">11mb file</a></li>
+	  </ul>
+
+	</body>
+	<script>
+	var app = angular.module('helloWorldApp', []);
+	app.controller('helloWorldCtrl', function($scope) {
+		$scope.helloWorld= "Hello World";
+	});
+	</script>
+</html>

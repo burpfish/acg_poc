@@ -1,0 +1,23 @@
+locals {
+  files = tomap({
+    "index.html" = "text/html"
+    "file_1mb.txt" = "text/plain"
+    "file_under_1mb.txt" = "text/plain"
+    "angular.js" = "text/javascript"
+  })
+}
+
+resource "aws_s3_bucket" "static_content" {
+  bucket_prefix  = "static-content-"
+  acl    = "private"
+
+  tags = var.tags
+}
+
+resource "aws_s3_bucket_object" "index" {
+  for_each = local.files
+  bucket = aws_s3_bucket.static_content.id
+  key = each.key
+  source = "${path.module}/${each.key}"
+  content_type = each.value
+}
