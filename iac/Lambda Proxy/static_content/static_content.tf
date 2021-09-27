@@ -23,3 +23,27 @@ resource "aws_s3_bucket_object" "file_upload" {
   etag   = filemd5("${path.module}/upload/${each.value}")
   content_type = lookup(local.mime_types, split(".", each.value)[1], "application/octet-stream")
 }
+
+// TODO: Use this to restrict bucket role (or vpc_link to squirt through vpc endpoint)
+//{
+//"Version": "2012-10-17",
+//"Statement": [
+//{
+//"Sid": "1",
+//"Effect": "Deny",
+//"Principal": "*",
+//"Condition": {
+//"ArnNotLike": {
+//"aws:PrincipalArn": [
+//"arn:aws:iam::876757926184:role/apigw_s3"
+//]
+//}
+//},
+//"Action": "s3:*",
+//"Resource": [
+//"arn:aws:s3:::static-content-20210927182618621100000001",
+//"arn:aws:s3:::static-content-20210927182618621100000001/*"
+//]
+//}
+//]
+//}
