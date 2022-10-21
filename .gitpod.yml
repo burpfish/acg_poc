@@ -6,4 +6,5 @@ tasks:
     echo "";
     echo "Create aws workspace here: https://learn.acloud.guru/cloud-playground/cloud-sandboxes";
     cd iac/Lambda\ Proxy/;
+    nano ./main_deployment/lb/burfordfc.com_private_key.key
     ./x_do_it_all.sh;
