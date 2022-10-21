@@ -1,0 +1,9 @@
+server.port: 80
+logging.level.org.springframework.cloud.kubernetes: DEBUG
+spring.application.name: test-service
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: info,refresh,keepalive,health

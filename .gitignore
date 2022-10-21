@@ -28,6 +28,7 @@ gradle/
 **/*.key
 **/*.cer
 **/*.zip
+**/*.class
 
 **/token.txt
 **/test_service.yml
