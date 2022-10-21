@@ -2,3 +2,5 @@
 
 # Clean up (assumes the workspace has expired - i.e. we don't call tf destroy)
 rm terraform.tfstate -f
+aws configure
+terraform init

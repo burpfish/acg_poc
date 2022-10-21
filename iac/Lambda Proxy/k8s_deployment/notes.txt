@@ -1,0 +1,14 @@
+Run from desktop:
+docker run --env-file ./settings --publish 80:80 --name nginx-s3-gateway     ghcr.io/nginxinc/nginx-s3-g
+ateway/nginx-oss-s3-gateway:latest
+
+interactive busybox Pod:
+kubectl run -it --rm --restart=Never busybox --image=gcr.io/google-containers/busybox sh
+
+test pods 'are serving'
+ kubectl get pods -l app=nginx \
+     -o go-template='{{range .items}}{{.status.podIP}}{{"\n"}}{{end}}'
+
+for ep in 10.0.0.215:80; do
+    wget -qO- $ep
+done

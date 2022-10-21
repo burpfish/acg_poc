@@ -1,0 +1,30 @@
+Notes
+
+- Instructions for how to generate an https cert, for Dave's use only
+- From https://ssl.ionos.co.uk/ssl-ssa/index#3,sslSettings, download
+    - private key (to ./lb/burfordfc.com_private_key.key)
+    - cert (to ./lb/burfordfc.com_ssl_certificate.cer)
+    - intermediate (to ./lb/burfordfc.com_ssl_certificate_INTERMEDIATE.cer)
+- Then to https://my.ionos.co.uk/domain-dns-settings/burfordfc.com?linkId=ct.txt.domains.tools.dns
+- And change the CNAME to that of the new ALB
+- Then hit https://api.burfordfc.com/static/index.html (could take a while ..)
+
+- Helm deployment: curl -sSL https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+
+AWS CLI
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+eksctl
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+sudo mv /tmp/eksctl /usr/local/bin
+eksctl version
+
+kubectl
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
+aws eks --region us-east-1 update-kubeconfig --name cluster
+
+kubectl get pods
