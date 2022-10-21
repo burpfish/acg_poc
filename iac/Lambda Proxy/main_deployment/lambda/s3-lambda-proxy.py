@@ -72,12 +72,6 @@ def lambda_handler(event, context):
 
         data = obj.get('Body').read()
 
-        # Compress the object if specified TODO: Compress on uploaded, or just the first time and puch back to S3 (to save time / resources)
-        if (compress_response) :
-            data = gzip.compress(data)
-            object_size = len(data)
-            print(">> Compressed response length: ", object_size)
-
         # Lambda output is limited to 1Mb when invoked from ALB - Enable for large file support via pre signed URLs
         if (enable_large_file_support):
             # Do not hardcode size (differs depending on the solution we select)
@@ -93,6 +87,10 @@ def lambda_handler(event, context):
                 return output
 
         if (compress_response):
+            data = gzip.compress(data)
+            object_size = len(data)
+            print(">> Compressed response length: ", object_size)
+
             output['body']=(base64.b64encode(data).decode('utf-8'))
             output['headers']['Content-Encoding'] = 'gzip'
             output['isBase64Encoded'] = True

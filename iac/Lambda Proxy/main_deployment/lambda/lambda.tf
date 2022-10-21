@@ -7,6 +7,7 @@ resource "aws_lambda_function" "lambda" {
   filename         = data.archive_file.lambda_zip.output_path
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
   tags             = var.tags
+  timeout          = 60
 
   vpc_config {
     subnet_ids         = var.network.subnets.*.id
