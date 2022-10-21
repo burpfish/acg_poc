@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 export KUBE_CONFIG_PATH=~/.kube/config
+aws eks update-kubeconfig --region us-east-1 --name cluster
 
 #kubectl delete ingress test-service
 #kubectl delete service test-service
