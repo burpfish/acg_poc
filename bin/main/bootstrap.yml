@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    kubernetes:
+      config:
+        enabled: true
+        namespace: test-namespace
+        name: test-app-configmap
+      reload:
+        enabled: true
+        mode: event
+        strategy: refresh
