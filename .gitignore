@@ -32,3 +32,4 @@ gradle/
 **/token.txt
 **/test_service.yml
 **/cluster_autoscaler.yml
+iac/Lambda Proxy/output.json
