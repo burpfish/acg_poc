@@ -1,0 +1,9 @@
+image:
+  file: .gitpod.Dockerfile
+tasks:
+- name: Terminal
+  command: >
+    echo "";
+    echo "Yo - go here to create an aws workspace: https://learn.acloud.guru/cloud-playground/cloud-sandboxes";
+    cd iac/Lambda\ Proxy/;
+    ./0_clean_up.sh;
