@@ -33,3 +33,5 @@ gradle/
 **/test_service.yml
 **/cluster_autoscaler.yml
 iac/Lambda Proxy/output.json
+**/nginx-s3-deployment.yaml
+**/test_service.yaml

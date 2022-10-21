@@ -24,4 +24,4 @@ docker push $TEST_SERVICE_IMAGE
 ## Create namespace, deploy service
 echo ">> Update the image in test_service.yml to $TEST_SERVICE_IMAGE"
 kubectl apply -f ./test_service.yml
-kubectl get all
+# kubectl get all
